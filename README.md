@@ -71,189 +71,192 @@ try {
 ?>
 ```
 
+
+<a name="documentation-for-api-endpoints"></a>
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.moosend.com/v3*
+## *CampaignsApi*
+Class | Method 
+------------ | ------------- 
+[**GetAllCampaigns**](docs/CampaignsApi.md#getallcampaigns) | Returns a list of all campaigns in your account with detailed information.  
+[**GetCampaignsByPage**](docs/CampaignsApi.md#getcampaignsbypage) | Returns a list of all campaigns in your account with detailed information, paging information is required as input.
+[**GetCampaignsByPageAndPagesize**](docs/CampaignsApi.md#getcampaignsbypageandpagesize) | Returns a list of all campaigns in your account with detailed information, paging information is required as input.
+[**GettingCampaignDetails**](docs/CampaignsApi.md#gettingcampaigndetails) | Returns a complete set of properties that describe the requested campaign in detail.  
+[**GettingSenderDetails**](docs/CampaignsApi.md#gettingsenderdetails) | Returns basic information for the specified sender identified by its email address.
+[**CloningAnExistingCampaign**](docs/CampaignsApi.md#cloninganexistingcampaign) | Creates an exact copy of an existing campaign. The new campaign is created as a draft.
+[**CreatingADraftCampaign**](docs/CampaignsApi.md#creatingadraftcampaign) | Creates a new campaign in your account. This method does not send the campaign, but rather creates it as a draft, ready for sending or testing. 
+[**UpdatingADraftCampaign**](docs/CampaignsApi.md#updatingadraftcampaign) | Updates properties of an existing draft A/B campaign in your account. Non-draft campaigns cannot be updated. 
+[**DeletingACampaign**](docs/CampaignsApi.md#deletingacampaign) | Deletes a campaign from your account, draft or even sent.
+[**TestingACampaign**](docs/CampaignsApi.md#testingacampaign) | Sends a test email of a draft campaign to a list of email addresses you specify for previewing.
+[**SendingACampaign**](docs/CampaignsApi.md#sendingacampaign) | Sends an existing draft campaign to all recipients specified in its mailing list. The campaign is sent immediatelly.
+[**ABTestCampaignSummary**](docs/CampaignsApi.md#abtestcampaignsummary) |  Provides a basic summary of the results for a sent AB test campaign, separately for each version (A and B), such as the number of recipients, opens, clicks, bounces, unsubscribes, forwards etc to date.
+[**ActivityByLocation**](docs/CampaignsApi.md#activitybylocation) |  Returns a detailed report of your campaign opens (unique and total) by country.
+[**CampaignSummary**](docs/CampaignsApi.md#campaignsummary) | Provides a basic summary of the results for any sent campaign such as the number of recipients, opens, clicks, bounces, unsubscribes, forwards etc. to date.
+[**GettingAllYourSenders**](docs/CampaignsApi.md#gettingallyoursenders) | Gets a list of your active senders in your account. You may specify any email address of these senders when sending a campaign.
+[**LinkActivity**](docs/CampaignsApi.md#linkactivity) | Returns a list with your campaign links and how many clicks have been made by your recipients, either unique or total.
+[**SchedulingACampaign**](docs/CampaignsApi.md#schedulingacampaign) | Assigns a scheduled date and time at which the campaign will be delivered.
+[**UnschedulingACampaign**](docs/CampaignsApi.md#unschedulingacampaign) | Removes a previously defined scheduled date and time from a campaign, so that it will be delivered immediately if already queued or when sent.
 
-Class | Method | HTTP request | Description
------------- | ------------- | ------------- | -------------
-*CampaignsApi* | [**aBTestCampaignSummary**](docs/Api/CampaignsApi.md#abtestcampaignsummary) | **GET** /campaigns/{CampaignID}/view_ab_summary.{Format} | AB Test Campaign Summary
-*CampaignsApi* | [**activityByLocation**](docs/Api/CampaignsApi.md#activitybylocation) | **GET** /campaigns/{CampaignID}/stats/countries.{Format} | Activity By Location
-*CampaignsApi* | [**campaignSummary**](docs/Api/CampaignsApi.md#campaignsummary) | **GET** /campaigns/{CampaignID}/view_summary.{Format} | Campaign Summary
-*CampaignsApi* | [**cloningAnExistingCampaign**](docs/Api/CampaignsApi.md#cloninganexistingcampaign) | **POST** /campaigns/{CampaignID}/clone.{Format} | Cloning An Existing Campaign
-*CampaignsApi* | [**creatingADraftCampaign**](docs/Api/CampaignsApi.md#creatingadraftcampaign) | **POST** /campaigns/create.{Format} | Creating A Draft Campaign
-*CampaignsApi* | [**deletingACampaign**](docs/Api/CampaignsApi.md#deletingacampaign) | **DELETE** /campaigns/{CampaignID}/delete.{Format} | Deleting A Campaign
-*CampaignsApi* | [**getAllCampaigns**](docs/Api/CampaignsApi.md#getallcampaigns) | **GET** /campaigns.{Format} | Get All Campaigns
-*CampaignsApi* | [**getCampaignStatisticsWithPagingFiltered**](docs/Api/CampaignsApi.md#getcampaignstatisticswithpagingfiltered) | **GET** /campaigns/{CampaignID}/stats/{Type}.{Format} | Get Campaign Statistics With Paging &amp; Filtered
-*CampaignsApi* | [**getCampaignsByPage**](docs/Api/CampaignsApi.md#getcampaignsbypage) | **GET** /campaigns/{Page}.{Format} | Get Campaigns By Page
-*CampaignsApi* | [**getCampaignsByPageAndPagesize**](docs/Api/CampaignsApi.md#getcampaignsbypageandpagesize) | **GET** /campaigns/{Page}/{PageSize}.{Format} | Get Campaigns By Page And Pagesize
-*CampaignsApi* | [**gettingAllYourSenders**](docs/Api/CampaignsApi.md#gettingallyoursenders) | **GET** /senders/find_all.{Format} | Getting All Your Senders
-*CampaignsApi* | [**gettingCampaignDetails**](docs/Api/CampaignsApi.md#gettingcampaigndetails) | **GET** /campaigns/{CampaignID}/view.{Format} | Getting Campaign Details
-*CampaignsApi* | [**gettingSenderDetails**](docs/Api/CampaignsApi.md#gettingsenderdetails) | **GET** /senders/find_one.{Format} | Getting Sender Details
-*CampaignsApi* | [**linkActivity**](docs/Api/CampaignsApi.md#linkactivity) | **GET** /campaigns/{CampaignID}/stats/links.{Format} | Link Activity
-*CampaignsApi* | [**schedulingACampaign**](docs/Api/CampaignsApi.md#schedulingacampaign) | **POST** /campaigns/{CampaignID}/schedule.{Format} | Scheduling A Campaign
-*CampaignsApi* | [**sendingACampaign**](docs/Api/CampaignsApi.md#sendingacampaign) | **POST** /campaigns/{CampaignID}/send.{Format} | Sending a campaign
-*CampaignsApi* | [**testingACampaign**](docs/Api/CampaignsApi.md#testingacampaign) | **POST** /campaigns/{CampaignID}/send_test.{Format} | Testing a campaign
-*CampaignsApi* | [**unschedulingACampaign**](docs/Api/CampaignsApi.md#unschedulingacampaign) | **POST** /campaigns/{CampaignID}/unschedule.{Format} | Unscheduling a campaign
-*CampaignsApi* | [**updatingADraftCampaign**](docs/Api/CampaignsApi.md#updatingadraftcampaign) | **POST** /campaigns/{CampaignID}/update.{Format} | Updating A Draft Campaign
-*MailingListsApi* | [**creatingACustomField**](docs/Api/MailingListsApi.md#creatingacustomfield) | **POST** /lists/{MailingListID}/customfields/create.{Format} | Creating a custom field
-*MailingListsApi* | [**creatingAMailingList**](docs/Api/MailingListsApi.md#creatingamailinglist) | **POST** /lists/create.{Format} | Creating a mailing list
-*MailingListsApi* | [**deletingAMailingList**](docs/Api/MailingListsApi.md#deletingamailinglist) | **DELETE** /lists/{MailingListID}/delete.{Format} | Deleting a mailing list
-*MailingListsApi* | [**gettingAllActiveMailingLists**](docs/Api/MailingListsApi.md#gettingallactivemailinglists) | **GET** /lists.{Format} | Getting all active mailing lists
-*MailingListsApi* | [**gettingAllActiveMailingListsWithPaging**](docs/Api/MailingListsApi.md#gettingallactivemailinglistswithpaging) | **GET** /lists/{Page}/{PageSize}.{Format} | Getting all active mailing lists with paging
-*MailingListsApi* | [**gettingMailingListDetails**](docs/Api/MailingListsApi.md#gettingmailinglistdetails) | **GET** /lists/{MailingListID}/details.{Format} | Getting mailing list details
-*MailingListsApi* | [**removingACustomField**](docs/Api/MailingListsApi.md#removingacustomfield) | **DELETE** /lists/{MailingListID}/customfields/{CustomFieldID}/delete.{Format} | Removing a custom field
-*MailingListsApi* | [**updatingACustomField**](docs/Api/MailingListsApi.md#updatingacustomfield) | **POST** /lists/{MailingListID}/customfields/{CustomFieldID}/update.{Format} | Updating a custom field
-*MailingListsApi* | [**updatingAMailingList**](docs/Api/MailingListsApi.md#updatingamailinglist) | **POST** /lists/{MailingListID}/update.{Format} | Updating a mailing list
-*SegmentsApi* | [**addingCriteriaToSegments**](docs/Api/SegmentsApi.md#addingcriteriatosegments) | **POST** /lists/{MailingListID}/segments/{SegmentID}/criteria/add.{Format} | Adding criteria to segments
-*SegmentsApi* | [**creatingANewSegment**](docs/Api/SegmentsApi.md#creatinganewsegment) | **POST** /lists/{MailingListID}/segments/create.{Format} | Creating a new segment
-*SegmentsApi* | [**deletingASegment**](docs/Api/SegmentsApi.md#deletingasegment) | **DELETE** /lists/{MailingListID}/segments/{SegmentID}/delete.{Format} | Deleting A Segment
-*SegmentsApi* | [**gettingSegmentDetails**](docs/Api/SegmentsApi.md#gettingsegmentdetails) | **GET** /lists/{MailingListID}/segments/{SegmentID}/details.{Format} | Getting segment details
-*SegmentsApi* | [**gettingSegmentSubscribers**](docs/Api/SegmentsApi.md#gettingsegmentsubscribers) | **GET** /lists/{MailingListID}/segments/{SegmentID}/members.{Format} | Getting segment subscribers
-*SegmentsApi* | [**gettingSegments**](docs/Api/SegmentsApi.md#gettingsegments) | **GET** /lists/{MailingListID}/segments.{Format} | Getting segments
-*SegmentsApi* | [**updatingASegment**](docs/Api/SegmentsApi.md#updatingasegment) | **POST** /lists/{MailingListID}/segments/{SegmentID}/update.{Format} | Updating a segment
-*SegmentsApi* | [**updatingSegmentCriteria**](docs/Api/SegmentsApi.md#updatingsegmentcriteria) | **POST** /lists/{MailingListID}/segments/{SegmentID}/criteria/{CriteriaID}/update.{Format} | Updating segment criteria
-*SubscribersApi* | [**addingMultipleSubscribers**](docs/Api/SubscribersApi.md#addingmultiplesubscribers) | **POST** /subscribers/{MailingListID}/subscribe_many.{Format} | Adding multiple subscribers
-*SubscribersApi* | [**addingSubscribers**](docs/Api/SubscribersApi.md#addingsubscribers) | **POST** /subscribers/{MailingListID}/subscribe.{Format} | Adding subscribers
-*SubscribersApi* | [**getSubscriberByEmailAddress**](docs/Api/SubscribersApi.md#getsubscriberbyemailaddress) | **GET** /subscribers/{MailingListID}/view.{Format} | Get subscriber by email address
-*SubscribersApi* | [**getSubscriberById**](docs/Api/SubscribersApi.md#getsubscriberbyid) | **GET** /subscribers/{MailingListID}/find/{SubscriberID}.{Format} | Get subscriber by id
-*SubscribersApi* | [**gettingSubscribers**](docs/Api/SubscribersApi.md#gettingsubscribers) | **GET** /lists/{MailingListID}/subscribers/{Status}.{Format} | Getting subscribers
-*SubscribersApi* | [**removingASubscriber**](docs/Api/SubscribersApi.md#removingasubscriber) | **POST** /subscribers/{MailingListID}/remove.{Format} | Removing a subscriber
-*SubscribersApi* | [**removingMultipleSubscribers**](docs/Api/SubscribersApi.md#removingmultiplesubscribers) | **POST** /subscribers/{MailingListID}/remove_many.{Format} | Removing multiple subscribers
-*SubscribersApi* | [**unsubscribingSubscribersFromAccount**](docs/Api/SubscribersApi.md#unsubscribingsubscribersfromaccount) | **POST** /subscribers/unsubscribe.{Format} | Unsubscribing subscribers from account
-*SubscribersApi* | [**unsubscribingSubscribersFromMailingList**](docs/Api/SubscribersApi.md#unsubscribingsubscribersfrommailinglist) | **POST** /subscribers/{MailingListID}/unsubscribe.{Format} | Unsubscribing subscribers from mailing list
-*SubscribersApi* | [**unsubscribingSubscribersFromMailingListAndASpecifiedCampaign**](docs/Api/SubscribersApi.md#unsubscribingsubscribersfrommailinglistandaspecifiedcampaign) | **POST** /subscribers/{MailingListID}/{CampaignID}/unsubscribe.{Format} | Unsubscribing subscribers from mailing list and a specified campaign
-*SubscribersApi* | [**updatingASubscriber**](docs/Api/SubscribersApi.md#updatingasubscriber) | **POST** /subscribers/{MailingListID}/update/{SubscriberID}.{Format} | Updating a subscriber
+## *MailingListsApi*
+Class | Method 
+------------ | ------------- 
+[**CreatingACustomField**](docs/MailingListsApi.md#creatingacustomfield) | Creates a new custom field in the specified mailing list.
+[**CreatingAMailingList**](docs/MailingListsApi.md#creatingamailinglist) | Creates a new empty mailing list in your account.
+[**DeletingAMailingList**](docs/MailingListsApi.md#deletingamailinglist) | Deletes a mailing list from your account.
+[**GettingAllActiveMailingLists**](docs/MailingListsApi.md#gettingallactivemailinglists) | Gets a list of your active mailing lists in your account.
+[**GettingAllActiveMailingListsWithPaging**](docs/MailingListsApi.md#gettingallactivemailinglistswithpaging) | Gets a list of your active mailing lists in your account. Because the results for this call could be quite big, paging information is required as input.
+[**GettingMailingListDetails**](docs/MailingListsApi.md#gettingmailinglistdetails) | Gets details for a given mailing list. You may include subscriber statistics in your results or not. Any segments existing for the requested mailing list will not be included in the results.
+[**RemovingACustomField**](docs/MailingListsApi.md#removingacustomfield) | Removes a custom field definition from the specified mailing list.
+[**UpdatingACustomField**](docs/MailingListsApi.md#updatingacustomfield) | Updates the properties of an existing custom field in the specified mailing list.
+[**UpdatingAMailingList**](docs/MailingListsApi.md#updatingamailinglist) | Updates the properties of an existing mailing list.
 
+## *SegmentsApi*
+Class | Method 
+------------ | ------------- 
+[**GettingSegments**](docs/SegmentsApi.md#gettingsegments) | Get a list of all segments with their criteria for the given mailing list.
+[**GettingSegmentDetails**](docs/SegmentsApi.md#gettingsegmentdetails) | Gets detailed information on a specific segment and its criteria. However, it does not include the subscribers returned by the segment.
+[**GettingSegmentSubscribers**](docs/SegmentsApi.md#gettingsegmentsubscribers) | Gets a list of the subscribers that the specified segment returns according to its criteria. Because the results for this call could be quite big, paging information is required as input.
+[**CreatingANewSegment**](docs/SegmentsApi.md#creatinganewsegment) | Creates a new empty segment (without criteria) for the given mailing list. You may specify the name of the segment and the way the criteria will match together.
+[**UpdatingASegment**](docs/SegmentsApi.md#updatingasegment) | Updates the properties of an existing segment. You may update the name and match type of the segment.
+[**AddingCriteriaToSegments**](docs/SegmentsApi.md#addingcriteriatosegments) | Adds a new criterion (a rule) to the specified segment.
+[**UpdatingSegmentCriteria**](docs/SegmentsApi.md#updatingsegmentcriteria) | Updates an existing criterion in the specified segment.
+[**DeletingASegment**](docs/SegmentsApi.md#deletingasegment) | Deletes a segment along with its criteria from the mailing list. The subscribers of the mailing list that the segment returned are not deleted or affected in any way.
 
-## Documentation For Models
-
- - [A](docs/Model/A.md)
- - [ABCampaignData](docs/Model/ABCampaignData.md)
- - [AbTestCampaignSummaryResponse](docs/Model/AbTestCampaignSummaryResponse.md)
- - [ActivityByLocationResponse](docs/Model/ActivityByLocationResponse.md)
- - [AddingCriteriaToSegmentsRequest](docs/Model/AddingCriteriaToSegmentsRequest.md)
- - [AddingCriteriaToSegmentsResponse](docs/Model/AddingCriteriaToSegmentsResponse.md)
- - [AddingMultipleSubscribersRequest](docs/Model/AddingMultipleSubscribersRequest.md)
- - [AddingMultipleSubscribersResponse](docs/Model/AddingMultipleSubscribersResponse.md)
- - [AddingSubscribersRequest](docs/Model/AddingSubscribersRequest.md)
- - [AddingSubscribersResponse](docs/Model/AddingSubscribersResponse.md)
- - [Analytic](docs/Model/Analytic.md)
- - [B](docs/Model/B.md)
- - [Campaign](docs/Model/Campaign.md)
- - [CampaignSummaryResponse](docs/Model/CampaignSummaryResponse.md)
- - [CloningAnExistingCampaignResponse](docs/Model/CloningAnExistingCampaignResponse.md)
- - [Context](docs/Model/Context.md)
- - [Context110](docs/Model/Context110.md)
- - [Context118](docs/Model/Context118.md)
- - [Context132](docs/Model/Context132.md)
- - [Context140](docs/Model/Context140.md)
- - [Context145](docs/Model/Context145.md)
- - [Context148](docs/Model/Context148.md)
- - [Context17](docs/Model/Context17.md)
- - [Context32](docs/Model/Context32.md)
- - [Context37](docs/Model/Context37.md)
- - [Context52](docs/Model/Context52.md)
- - [Context64](docs/Model/Context64.md)
- - [Context66](docs/Model/Context66.md)
- - [Context72](docs/Model/Context72.md)
- - [Context84](docs/Model/Context84.md)
- - [Context89](docs/Model/Context89.md)
- - [Context93](docs/Model/Context93.md)
- - [CreatingACustomFieldRequest](docs/Model/CreatingACustomFieldRequest.md)
- - [CreatingACustomFieldResponse](docs/Model/CreatingACustomFieldResponse.md)
- - [CreatingADraftCampaignRequest](docs/Model/CreatingADraftCampaignRequest.md)
- - [CreatingADraftCampaignResponse](docs/Model/CreatingADraftCampaignResponse.md)
- - [CreatingAMailingListRequest](docs/Model/CreatingAMailingListRequest.md)
- - [CreatingAMailingListResponse](docs/Model/CreatingAMailingListResponse.md)
- - [CreatingANewSegmentRequest](docs/Model/CreatingANewSegmentRequest.md)
- - [CreatingANewSegmentResponse](docs/Model/CreatingANewSegmentResponse.md)
- - [Criterion](docs/Model/Criterion.md)
- - [CustomField](docs/Model/CustomField.md)
- - [CustomField53](docs/Model/CustomField53.md)
- - [CustomFieldsDefinition](docs/Model/CustomFieldsDefinition.md)
- - [DeletingACampaignResponse](docs/Model/DeletingACampaignResponse.md)
- - [DeletingAMailingListResponse](docs/Model/DeletingAMailingListResponse.md)
- - [DeletingASegmentResponse](docs/Model/DeletingASegmentResponse.md)
- - [Format](docs/Model/Format.md)
- - [GetAllCampaignsResponse](docs/Model/GetAllCampaignsResponse.md)
- - [GetCampaignStatisticsResponse](docs/Model/GetCampaignStatisticsResponse.md)
- - [GetCampaignStatisticsWithPagingFilteredResponse](docs/Model/GetCampaignStatisticsWithPagingFilteredResponse.md)
- - [GetCampaignsByPageAndPagesizeResponse](docs/Model/GetCampaignsByPageAndPagesizeResponse.md)
- - [GetCampaignsByPageResponse](docs/Model/GetCampaignsByPageResponse.md)
- - [GetSubscriberByEmailAddressResponse](docs/Model/GetSubscriberByEmailAddressResponse.md)
- - [GetSubscriberByIdResponse](docs/Model/GetSubscriberByIdResponse.md)
- - [GettingAllActiveMailingListsResponse](docs/Model/GettingAllActiveMailingListsResponse.md)
- - [GettingAllActiveMailingListsWithPagingResponse](docs/Model/GettingAllActiveMailingListsWithPagingResponse.md)
- - [GettingAllYourSendersResponse](docs/Model/GettingAllYourSendersResponse.md)
- - [GettingCampaignDetailsResponse](docs/Model/GettingCampaignDetailsResponse.md)
- - [GettingMailingListDetailsResponse](docs/Model/GettingMailingListDetailsResponse.md)
- - [GettingSegmentDetailsResponse](docs/Model/GettingSegmentDetailsResponse.md)
- - [GettingSegmentSubscribersResponse](docs/Model/GettingSegmentSubscribersResponse.md)
- - [GettingSegmentsResponse](docs/Model/GettingSegmentsResponse.md)
- - [GettingSenderDetailsResponse](docs/Model/GettingSenderDetailsResponse.md)
- - [GettingSubscribersResponse](docs/Model/GettingSubscribersResponse.md)
- - [ImportOperation](docs/Model/ImportOperation.md)
- - [ImportOperation19](docs/Model/ImportOperation19.md)
- - [LinkActivityResponse](docs/Model/LinkActivityResponse.md)
- - [MailingList](docs/Model/MailingList.md)
- - [MailingList68](docs/Model/MailingList68.md)
- - [MailingList69](docs/Model/MailingList69.md)
- - [MailingList85](docs/Model/MailingList85.md)
- - [MailingLists](docs/Model/MailingLists.md)
- - [MailingLists119](docs/Model/MailingLists119.md)
- - [MailingLists134](docs/Model/MailingLists134.md)
- - [Paging](docs/Model/Paging.md)
- - [Paging76](docs/Model/Paging76.md)
- - [RemovingACustomFieldResponse](docs/Model/RemovingACustomFieldResponse.md)
- - [RemovingASubscriberRequest](docs/Model/RemovingASubscriberRequest.md)
- - [RemovingASubscriberResponse](docs/Model/RemovingASubscriberResponse.md)
- - [RemovingMultipleSubscribersRequest](docs/Model/RemovingMultipleSubscribersRequest.md)
- - [RemovingMultipleSubscribersResponse](docs/Model/RemovingMultipleSubscribersResponse.md)
- - [ReplyToEmail](docs/Model/ReplyToEmail.md)
- - [SchedulingACampaignRequest](docs/Model/SchedulingACampaignRequest.md)
- - [SchedulingACampaignResponse](docs/Model/SchedulingACampaignResponse.md)
- - [Segment](docs/Model/Segment.md)
- - [Sender](docs/Model/Sender.md)
- - [SendingACampaignResponse](docs/Model/SendingACampaignResponse.md)
- - [ShortBy](docs/Model/ShortBy.md)
- - [SortMethod](docs/Model/SortMethod.md)
- - [Status](docs/Model/Status.md)
- - [Subscriber](docs/Model/Subscriber.md)
- - [Subscribers](docs/Model/Subscribers.md)
- - [Subscribers150](docs/Model/Subscribers150.md)
- - [TestingACampaignRequest](docs/Model/TestingACampaignRequest.md)
- - [TestingACampaignResponse](docs/Model/TestingACampaignResponse.md)
- - [Type](docs/Model/Type.md)
- - [UnschedulingACampaignResponse](docs/Model/UnschedulingACampaignResponse.md)
- - [UnsubscribingSubscribersFromAccountRequest](docs/Model/UnsubscribingSubscribersFromAccountRequest.md)
- - [UnsubscribingSubscribersFromAccountResponse](docs/Model/UnsubscribingSubscribersFromAccountResponse.md)
- - [UnsubscribingSubscribersFromMailingListAndASpecifiedCampaignRequest](docs/Model/UnsubscribingSubscribersFromMailingListAndASpecifiedCampaignRequest.md)
- - [UnsubscribingSubscribersFromMailingListAndASpecifiedCampaignResponse](docs/Model/UnsubscribingSubscribersFromMailingListAndASpecifiedCampaignResponse.md)
- - [UnsubscribingSubscribersFromMailingListRequest](docs/Model/UnsubscribingSubscribersFromMailingListRequest.md)
- - [UnsubscribingSubscribersFromMailingListResponse](docs/Model/UnsubscribingSubscribersFromMailingListResponse.md)
- - [UpdatingACustomFieldRequest](docs/Model/UpdatingACustomFieldRequest.md)
- - [UpdatingACustomFieldResponse](docs/Model/UpdatingACustomFieldResponse.md)
- - [UpdatingADraftCampaignRequest](docs/Model/UpdatingADraftCampaignRequest.md)
- - [UpdatingADraftCampaignResponse](docs/Model/UpdatingADraftCampaignResponse.md)
- - [UpdatingAMailingListRequest](docs/Model/UpdatingAMailingListRequest.md)
- - [UpdatingAMailingListResponse](docs/Model/UpdatingAMailingListResponse.md)
- - [UpdatingASegmentRequest](docs/Model/UpdatingASegmentRequest.md)
- - [UpdatingASegmentResponse](docs/Model/UpdatingASegmentResponse.md)
- - [UpdatingASubscriberRequest](docs/Model/UpdatingASubscriberRequest.md)
- - [UpdatingASubscriberResponse](docs/Model/UpdatingASubscriberResponse.md)
- - [UpdatingSegmentCriteriaRequest](docs/Model/UpdatingSegmentCriteriaRequest.md)
- - [UpdatingSegmentCriteriaResponse](docs/Model/UpdatingSegmentCriteriaResponse.md)
- - [WithStatistics](docs/Model/WithStatistics.md)
+## *SubscribersApi*
+Class | Method 
+------------ | ------------- 
+[**GettingSubscribers**](docs/SubscribersApi.md#gettingsubscribers) | Gets a list of all subscribers in a given mailing list. You may filter the list by setting a date to fetch those subscribed since then and/or by their status. 
+[**GetSubscriberByEmailAddress**](docs/SubscribersApi.md#getsubscriberbyemailaddress) | Searches for a subscriber with the specified email address in the specified mailing list.
+[**GetSubscriberById**](docs/SubscribersApi.md#getsubscriberbyid) | Searches for a subscriber with the specified unique id in the specified mailing list
+[**AddingSubscribers**](docs/SubscribersApi.md#addingsubscribers) | Adds a new subscriber to the specified mailing list. If there is already a subscriber with the specified email address in the list, an update will be performed instead.
+[**AddingMultipleSubscribers**](docs/SubscribersApi.md#addingmultiplesubscribers) | This method allows you to add multiple subscribers in a mailing list with a single call. If some subscribers already exist with the given email addresses, they will be updated. 
+[**UpdatingASubscriber**](docs/SubscribersApi.md#updatingasubscriber) | Updates a subscriber in the specified mailing list. You can even update the subscribers email, if he has not unsubscribed.
+[**UnsubscribingSubscribersFromAccount**](docs/SubscribersApi.md#unsubscribingsubscribersfromaccount) | Unsubscribes a subscriber from the account.
+[**UnsubscribingSubscribersFromMailingList**](docs/SubscribersApi.md#unsubscribingsubscribersfrommailinglist) | Unsubscribes a subscriber from the specified mailing list. The subscriber is not deleted, but moved to the suppression list.
+[**UnsubscribingSubscribersFromMailingListAndASpecifiedCampaign**](docs/SubscribersApi.md#unsubscribingsubscribersfrommailinglistandaspecifiedcampaign) | Unsubscribes a subscriber from the specified mailing list and the specified campaign. The subscriber is not deleted, but moved to the suppression list. 
+[**RemovingASubscriber**](docs/SubscribersApi.md#removingasubscriber) | Removes a subscriber from the specified mailing list permanently (without moving to the suppression list).
+[**RemovingMultipleSubscribers**](docs/SubscribersApi.md#removingmultiplesubscribers) | Removes a list of subscribers from the specified mailing list permanently (without putting them in the suppression list). Any invalid email addresses specified will be ignored.
 
 
-## Documentation For Authorization
+<a name="documentation-for-models"></a>
+## Documentation for Models
 
- All endpoints do not require authorization.
-
-
-## Author
-
-
+ - [Model.A](docs/A.md)
+ - [Model.ABCampaignData](docs/ABCampaignData.md)
+ - [Model.AbTestCampaignSummaryResponse](docs/AbTestCampaignSummaryResponse.md)
+ - [Model.ActivityByLocationResponse](docs/ActivityByLocationResponse.md)
+ - [Model.AddingCriteriaToSegmentsRequest](docs/AddingCriteriaToSegmentsRequest.md)
+ - [Model.AddingCriteriaToSegmentsResponse](docs/AddingCriteriaToSegmentsResponse.md)
+ - [Model.AddingMultipleSubscribersRequest](docs/AddingMultipleSubscribersRequest.md)
+ - [Model.AddingMultipleSubscribersResponse](docs/AddingMultipleSubscribersResponse.md)
+ - [Model.AddingSubscribersRequest](docs/AddingSubscribersRequest.md)
+ - [Model.AddingSubscribersResponse](docs/AddingSubscribersResponse.md)
+ - [Model.Analytic](docs/Analytic.md)
+ - [Model.B](docs/B.md)
+ - [Model.Campaign](docs/Campaign.md)
+ - [Model.CampaignSummaryResponse](docs/CampaignSummaryResponse.md)
+ - [Model.CloningAnExistingCampaignResponse](docs/CloningAnExistingCampaignResponse.md)
+ - [Model.Context](docs/Context.md)
+ - [Model.Context110](docs/Context110.md)
+ - [Model.Context118](docs/Context118.md)
+ - [Model.Context132](docs/Context132.md)
+ - [Model.Context140](docs/Context140.md)
+ - [Model.Context145](docs/Context145.md)
+ - [Model.Context148](docs/Context148.md)
+ - [Model.Context17](docs/Context17.md)
+ - [Model.Context32](docs/Context32.md)
+ - [Model.Context37](docs/Context37.md)
+ - [Model.Context52](docs/Context52.md)
+ - [Model.Context64](docs/Context64.md)
+ - [Model.Context66](docs/Context66.md)
+ - [Model.Context72](docs/Context72.md)
+ - [Model.Context84](docs/Context84.md)
+ - [Model.Context89](docs/Context89.md)
+ - [Model.Context93](docs/Context93.md)
+ - [Model.CreatingACustomFieldRequest](docs/CreatingACustomFieldRequest.md)
+ - [Model.CreatingACustomFieldResponse](docs/CreatingACustomFieldResponse.md)
+ - [Model.CreatingADraftCampaignRequest](docs/CreatingADraftCampaignRequest.md)
+ - [Model.CreatingADraftCampaignResponse](docs/CreatingADraftCampaignResponse.md)
+ - [Model.CreatingAMailingListRequest](docs/CreatingAMailingListRequest.md)
+ - [Model.CreatingAMailingListResponse](docs/CreatingAMailingListResponse.md)
+ - [Model.CreatingANewSegmentRequest](docs/CreatingANewSegmentRequest.md)
+ - [Model.CreatingANewSegmentResponse](docs/CreatingANewSegmentResponse.md)
+ - [Model.Criterion](docs/Criterion.md)
+ - [Model.CustomField](docs/CustomField.md)
+ - [Model.CustomField53](docs/CustomField53.md)
+ - [Model.CustomFieldsDefinition](docs/CustomFieldsDefinition.md)
+ - [Model.DeletingACampaignResponse](docs/DeletingACampaignResponse.md)
+ - [Model.DeletingAMailingListResponse](docs/DeletingAMailingListResponse.md)
+ - [Model.DeletingASegmentResponse](docs/DeletingASegmentResponse.md)
+ - [Model.Format](docs/Format.md)
+ - [Model.GetAllCampaignsResponse](docs/GetAllCampaignsResponse.md)
+ - [Model.GetCampaignStatisticsResponse](docs/GetCampaignStatisticsResponse.md)
+ - [Model.GetCampaignStatisticsWithPagingFilteredResponse](docs/GetCampaignStatisticsWithPagingFilteredResponse.md)
+ - [Model.GetCampaignsByPageAndPagesizeResponse](docs/GetCampaignsByPageAndPagesizeResponse.md)
+ - [Model.GetCampaignsByPageResponse](docs/GetCampaignsByPageResponse.md)
+ - [Model.GetSubscriberByEmailAddressResponse](docs/GetSubscriberByEmailAddressResponse.md)
+ - [Model.GetSubscriberByIdResponse](docs/GetSubscriberByIdResponse.md)
+ - [Model.GettingAllActiveMailingListsResponse](docs/GettingAllActiveMailingListsResponse.md)
+ - [Model.GettingAllActiveMailingListsWithPagingResponse](docs/GettingAllActiveMailingListsWithPagingResponse.md)
+ - [Model.GettingAllYourSendersResponse](docs/GettingAllYourSendersResponse.md)
+ - [Model.GettingCampaignDetailsResponse](docs/GettingCampaignDetailsResponse.md)
+ - [Model.GettingMailingListDetailsResponse](docs/GettingMailingListDetailsResponse.md)
+ - [Model.GettingSegmentDetailsResponse](docs/GettingSegmentDetailsResponse.md)
+ - [Model.GettingSegmentSubscribersResponse](docs/GettingSegmentSubscribersResponse.md)
+ - [Model.GettingSegmentsResponse](docs/GettingSegmentsResponse.md)
+ - [Model.GettingSenderDetailsResponse](docs/GettingSenderDetailsResponse.md)
+ - [Model.GettingSubscribersResponse](docs/GettingSubscribersResponse.md)
+ - [Model.ImportOperation](docs/ImportOperation.md)
+ - [Model.ImportOperation19](docs/ImportOperation19.md)
+ - [Model.LinkActivityResponse](docs/LinkActivityResponse.md)
+ - [Model.MailingList](docs/MailingList.md)
+ - [Model.MailingList68](docs/MailingList68.md)
+ - [Model.MailingList69](docs/MailingList69.md)
+ - [Model.MailingList85](docs/MailingList85.md)
+ - [Model.MailingLists](docs/MailingLists.md)
+ - [Model.MailingLists119](docs/MailingLists119.md)
+ - [Model.MailingLists134](docs/MailingLists134.md)
+ - [Model.Paging](docs/Paging.md)
+ - [Model.Paging76](docs/Paging76.md)
+ - [Model.RemovingACustomFieldResponse](docs/RemovingACustomFieldResponse.md)
+ - [Model.RemovingASubscriberRequest](docs/RemovingASubscriberRequest.md)
+ - [Model.RemovingASubscriberResponse](docs/RemovingASubscriberResponse.md)
+ - [Model.RemovingMultipleSubscribersRequest](docs/RemovingMultipleSubscribersRequest.md)
+ - [Model.RemovingMultipleSubscribersResponse](docs/RemovingMultipleSubscribersResponse.md)
+ - [Model.ReplyToEmail](docs/ReplyToEmail.md)
+ - [Model.SchedulingACampaignRequest](docs/SchedulingACampaignRequest.md)
+ - [Model.SchedulingACampaignResponse](docs/SchedulingACampaignResponse.md)
+ - [Model.Segment](docs/Segment.md)
+ - [Model.Sender](docs/Sender.md)
+ - [Model.SendingACampaignResponse](docs/SendingACampaignResponse.md)
+ - [Model.ShortBy](docs/ShortBy.md)
+ - [Model.SortMethod](docs/SortMethod.md)
+ - [Model.Status](docs/Status.md)
+ - [Model.Subscriber](docs/Subscriber.md)
+ - [Model.Subscribers](docs/Subscribers.md)
+ - [Model.Subscribers150](docs/Subscribers150.md)
+ - [Model.TestingACampaignRequest](docs/TestingACampaignRequest.md)
+ - [Model.TestingACampaignResponse](docs/TestingACampaignResponse.md)
+ - [Model.Type](docs/Type.md)
+ - [Model.UnschedulingACampaignResponse](docs/UnschedulingACampaignResponse.md)
+ - [Model.UnsubscribingSubscribersFromAccountRequest](docs/UnsubscribingSubscribersFromAccountRequest.md)
+ - [Model.UnsubscribingSubscribersFromAccountResponse](docs/UnsubscribingSubscribersFromAccountResponse.md)
+ - [Model.UnsubscribingSubscribersFromMailingListAndASpecifiedCampaignRequest](docs/UnsubscribingSubscribersFromMailingListAndASpecifiedCampaignRequest.md)
+ - [Model.UnsubscribingSubscribersFromMailingListAndASpecifiedCampaignResponse](docs/UnsubscribingSubscribersFromMailingListAndASpecifiedCampaignResponse.md)
+ - [Model.UnsubscribingSubscribersFromMailingListRequest](docs/UnsubscribingSubscribersFromMailingListRequest.md)
+ - [Model.UnsubscribingSubscribersFromMailingListResponse](docs/UnsubscribingSubscribersFromMailingListResponse.md)
+ - [Model.UpdatingACustomFieldRequest](docs/UpdatingACustomFieldRequest.md)
+ - [Model.UpdatingACustomFieldResponse](docs/UpdatingACustomFieldResponse.md)
+ - [Model.UpdatingADraftCampaignRequest](docs/UpdatingADraftCampaignRequest.md)
+ - [Model.UpdatingADraftCampaignResponse](docs/UpdatingADraftCampaignResponse.md)
+ - [Model.UpdatingAMailingListRequest](docs/UpdatingAMailingListRequest.md)
+ - [Model.UpdatingAMailingListResponse](docs/UpdatingAMailingListResponse.md)
+ - [Model.UpdatingASegmentRequest](docs/UpdatingASegmentRequest.md)
+ - [Model.UpdatingASegmentResponse](docs/UpdatingASegmentResponse.md)
+ - [Model.UpdatingASubscriberRequest](docs/UpdatingASubscriberRequest.md)
+ - [Model.UpdatingASubscriberResponse](docs/UpdatingASubscriberResponse.md)
+ - [Model.UpdatingSegmentCriteriaRequest](docs/UpdatingSegmentCriteriaRequest.md)
+ - [Model.UpdatingSegmentCriteriaResponse](docs/UpdatingSegmentCriteriaResponse.md)
+ - [Model.WithStatistics](docs/WithStatistics.md)
 
 
